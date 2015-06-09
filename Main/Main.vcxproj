@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_BulkBuild|Android">
+      <Configuration>Debug_BulkBuild</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_BulkBuild|Win32">
+      <Configuration>Debug_BulkBuild</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_BulkBuild|x64">
+      <Configuration>Debug_BulkBuild</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_BulkBuild|Android">
+      <Configuration>Release_BulkBuild</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_BulkBuild|Win32">
+      <Configuration>Release_BulkBuild</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_BulkBuild|x64">
+      <Configuration>Release_BulkBuild</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F708EF48-D76E-4321-9BEF-94B205412DE8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Main</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Android'">
+    <PlatformToolset>arm-linux-androideabi-4.6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Android'">
+    <PlatformToolset>arm-linux-androideabi-4.6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <PlatformToolset>arm-linux-androideabi-4.6</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_r</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Full</Optimization>
+      <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;WIN32;_RELEASE;_BULK;_CONSOLE;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../Engine;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(GLOG_SDK)\src\windows;$(VISUAL_LEAK_DETECTOR)/include;$(OXYGINE_SDK)/third_party/win32/glew;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)/boost/lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;..\..\Lib\glew-1.10.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>xcopy /R /Y $(OutDir)$(TargetName).exe ..\Bin\Build
+xcopy /R /Y $(OutDir)$(TargetName).pdb ..\Bin\Build
+xcopy /R /Y ..\Engine\$(Platform)\$(Configuration)\Engine.lib ..\Bin\Build</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../Engine;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(GLOG_SDK)\src\windows;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;_DEBUG;DEBUG;_BULK;_CONSOLE;GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;_ITERATOR_DEBUG_LEVEL=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)/boost/lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;..\..\Lib\glew-1.10.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>xcopy /R /Y $(OutDir)$(TargetName).exe ..\Bin\Build
+xcopy /R /Y $(OutDir)$(TargetName).pdb ..\Bin\Build
+xcopy /R /Y ..\Engine\$(Platform)\$(Configuration)\Engine_d.lib ..\Bin\Build</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_RELEASE;_CONSOLE;GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../Engine;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(GLOG_SDK)\src\windows;$(VISUAL_LEAK_DETECTOR)/include;$(OXYGINE_SDK)/third_party/win32/pthreads/include;$(OXYGINE_SDK)/src;$(OXYGINE_SDK)/third_party/win32/glew;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)/boost/lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;..\..\Lib\glew-1.10.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /R /Y $(OutDir)$(TargetName).exe ..\Bin\Build
+xcopy /R /Y $(OutDir)$(TargetName).pdb ..\Bin\Build
+xcopy /R /Y ..\Engine\$(Platform)\$(Configuration)\Engine_r.lib ..\Bin\Build</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|x64'">
+    <Link>
+      <AdditionalDependencies>BulletCollision_vs2010_x64_debug.lib;BulletDynamics_vs2010_x64_debug.lib;BulletSoftBody_vs2010_x64_debug.lib;ConvexDecomposition_vs2010_x64_debug.lib;LinearMath_vs2010_x64_debug.lib;..\Lib\libglog_static_X64.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreMain_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost\lib\libboost_thread-vc100-mt-gd-1_53.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost\lib\libboost_date_time-vc100-mt-gd-1_53.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost\lib\libboost_system-vc100-mt-gd-1_53.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost\lib\libboost_chrono-vc100-mt-gd-1_53.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreRTShaderSystem_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreTerrain_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgrePaging_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreVolume_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreOverlay_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OIS_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Lib\bullet-2.82-r2704\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\Lib\bullet-2.82-r2704\src;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include\Cg;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include\freetype;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include\OGRE;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include\OIS;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost;..\Lib\glog-0.3.3\src\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;_DEBUG</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|x64'">
+    <Link>
+      <AdditionalDependencies>BulletCollision_vs2010_x64_debug.lib;BulletDynamics_vs2010_x64_debug.lib;BulletSoftBody_vs2010_x64_debug.lib;ConvexDecomposition_vs2010_x64_debug.lib;LinearMath_vs2010_x64_debug.lib;..\Lib\libglog_static_X64.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreMain_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost\lib\libboost_thread-vc100-mt-gd-1_53.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost\lib\libboost_date_time-vc100-mt-gd-1_53.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost\lib\libboost_system-vc100-mt-gd-1_53.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost\lib\libboost_chrono-vc100-mt-gd-1_53.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreRTShaderSystem_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreTerrain_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgrePaging_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreVolume_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OgreOverlay_d.lib;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\lib\Debug\OIS_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Lib\bullet-2.82-r2704\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\Lib\bullet-2.82-r2704\src;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include\Cg;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include\freetype;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include\OGRE;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include\OIS;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\include;..\Lib\OgreSDK_vc10_x64_v1-9-0unstable\boost;..\Lib\glog-0.3.3\src\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;_DEBUG</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Main_BulkBuild.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
+      <Project>{58f5d7e9-93c0-40bc-b189-ef4a0d4f25dc}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

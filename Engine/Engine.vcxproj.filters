@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="FSM">
+      <UniqueIdentifier>{0602b419-ff6b-4925-9458-d44c9966eefc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{5721b3d9-035d-47e6-a4f6-ee770b1b584e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{f66d9fef-fac0-4db2-a097-7713d0db38d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{6f10419c-c69e-4f3c-82a2-3d86b7aaec5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{de4a042d-dbe4-4849-bbb4-e0001303c258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2263aa2c-87e3-4543-b220-6009f6deace4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{668ac6ad-9075-4bdd-8fa9-cac3128e2f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Factories">
+      <UniqueIdentifier>{fb3aca60-4ff2-488d-becf-43f16af3e1ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{3352ddc4-52f3-4db7-b6d5-dbddf4e4ad34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LOG">
+      <UniqueIdentifier>{506df789-91b5-4b44-9421-b8829e5ebdea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OtherComponents">
+      <UniqueIdentifier>{52b02138-4f40-4f97-baa6-a69d70b2da4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{93f6bc67-9218-4cf9-89dc-8a449b2e238b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script">
+      <UniqueIdentifier>{ae5323a4-0a62-444f-a96c-99f23b5a2373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{a9cd6a7d-6575-4532-b5d6-0948dc67bf34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Factories\Interface">
+      <UniqueIdentifier>{5165ee4c-5ccb-45bb-bbda-23bc3ea84978}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\DebugDrawer">
+      <UniqueIdentifier>{32bd1bca-d9d6-469a-a1cf-58ca1d7bffd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Interface">
+      <UniqueIdentifier>{dfa3b2d4-bbbf-4e6d-9219-dcf4497214b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Widgets">
+      <UniqueIdentifier>{64afb28c-cd59-4c3d-a00c-efaeb520193f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Widgets\Interface">
+      <UniqueIdentifier>{632e135c-0a41-4176-bcc9-a5f7bceb8779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{888b15cf-f4b6-4e6a-80a1-91b854f54c29}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FSM\State.cpp">
+      <Filter>FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM\FSM.cpp">
+      <Filter>FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM\Transition.cpp">
+      <Filter>FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM\FSMManager.cpp">
+      <Filter>FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\MGDAssert.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Event\EventRegistry.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Component.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\System.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Factories\ActorFactory.cpp">
+      <Filter>Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="Factories\FSMFactory.cpp">
+      <Filter>Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\CameraComponent.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\IGfxComponent.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\LightComponent.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\MeshGfxComponent.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\RenderingSystem.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\BaseGfxComponent.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GUIViewComponent.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GUISystem.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="LOG\LOGManager.cpp">
+      <Filter>LOG</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\SystemManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\LuaManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\ScriptSystem.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\ScriptComponent.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="OtherComponents\TransformationComponent.cpp">
+      <Filter>OtherComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\PhysicsSystem.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\PhysicsComponent.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\MotionState.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\BulletWorld.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\BulletObject.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\DebugDrawer\PhysicsDebugDrawer.cpp">
+      <Filter>Physics\DebugDrawer</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\DebugDrawer\DynamicRenderable.cpp">
+      <Filter>Physics\DebugDrawer</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\DebugDrawer\DynamicLines.cpp">
+      <Filter>Physics\DebugDrawer</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine_BulkBuild.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\Widgets\Interface\IGUIWidget.cpp">
+      <Filter>GUI\Widgets\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\Widgets\Button.cpp">
+      <Filter>GUI\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\Widgets\StaticText.cpp">
+      <Filter>GUI\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Renderer3D.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Renderer2D.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\RendererFactory.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\InputManager3D.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\InputManager2D.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\SpriteComponent.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\ResourceManager.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation\AnimatorComponent.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation\AnimatorSystem.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation\Motion.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Box2DWorld.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Box2DObject.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\TextureManager.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\InputManagerFactory.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FSM\State.h">
+      <Filter>FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM\FSM.h">
+      <Filter>FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM\Transition.h">
+      <Filter>FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM\FSMManager.h">
+      <Filter>FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Common.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\DataTypes.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\MGDAssert.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Utilities.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Event\RegistryEventHandler.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Event\EventRegistry.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Component.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Singleton.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\System.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\ActorFactory.h">
+      <Filter>Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\FSMFactory.h">
+      <Filter>Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\Interface\IActorFactory.h">
+      <Filter>Factories\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\CameraComponent.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\IGfxComponent.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\LightComponent.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\MeshGfxComponent.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\RenderingSystem.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\BaseGfxComponent.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GUIViewComponent.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GUISystem.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="LOG\LOGManager.h">
+      <Filter>LOG</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\SystemManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\LuaManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\ScriptSystem.h">
+      <Filter>Script</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\ScriptComponent.h">
+      <Filter>Script</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\LuaUtilities.h">
+      <Filter>Script</Filter>
+    </ClInclude>
+    <ClInclude Include="OtherComponents\TransformationComponent.h">
+      <Filter>OtherComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\PhysicsSystem.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\PhysicsObject.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\PhysicsComponent.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\MotionState.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\BulletWorld.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\BulletObject.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\PhysicsWorld.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\PhysicsUtilities.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\DebugDrawer\DynamicRenderable.h">
+      <Filter>Physics\DebugDrawer</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\DebugDrawer\DynamicLines.h">
+      <Filter>Physics\DebugDrawer</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\DebugDrawer\PhysicsDebugDrawer.h">
+      <Filter>Physics\DebugDrawer</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Interface\IScriptManager.h">
+      <Filter>Manager\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Widgets\Interface\IGUIWidget.h">
+      <Filter>GUI\Widgets\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Widgets\Button.h">
+      <Filter>GUI\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Widgets\StaticText.h">
+      <Filter>GUI\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Event\RegistryEventPublisher.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\IRenderer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\RendererFactory.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Renderer3D.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Renderer2D.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\InputManager3D.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\InputManagerFactory.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\InputManager2D.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\IInputManager.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\SpriteComponent.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\ResourceManager.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation\AnimatorComponent.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation\AnimatorSystem.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation\Motion.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Box2DWorld.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Box2DObject.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\TextureManager.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

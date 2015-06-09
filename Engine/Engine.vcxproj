@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_BulkBuild|Android">
+      <Configuration>Debug_BulkBuild</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_BulkBuild|Win32">
+      <Configuration>Debug_BulkBuild</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_BulkBuild|Android">
+      <Configuration>Release_BulkBuild</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_BulkBuild|Win32">
+      <Configuration>Release_BulkBuild</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{58F5D7E9-93C0-40BC-B189-EF4A0D4F25DC}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Engine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Android'">
+    <PlatformToolset>arm-linux-androideabi-4.6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Android'">
+    <PlatformToolset>arm-linux-androideabi-4.6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <PlatformToolset>arm-linux-androideabi-4.6</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\Lib</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_r</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;WIN32;_RELEASE;_BULK;_CONSOLE;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);..\..\Lib\FMOD Studio API Windows\api\studio\inc;..\..\Lib\FMOD Studio API Windows\api\lowlevel\inc</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>luaplus51-1201.lib;OgreMain.lib;OIS.lib;BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;BulletSoftBody_vs2010.lib;SDL2_image.lib;ConvexDecomposition_vs2010.lib;LinearMath_vs2010.lib;CEGUIBase.lib;CEGUIExpatParser.lib;CEGUIFalagardWRBase.lib;CEGUIOgreRenderer.lib;CEGUIOpenGLRenderer.lib;CEGUIFreeImageImageCodec.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;opengl32.lib;SDL2.lib;Box2D.lib;winmm.lib;freeimage.lib;fmodL_vc.lib;fmodstudioL_vc.lib;FreeGLUT.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Release;$(BULLET_SDK)\lib;..\..\Lib;$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/release;$(TINYXML_SDK)\tinyxml2\bin\Win32-Release-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Release;$(FREEIMAGE_SDK)/Release;..\..\Lib\FMOD Studio API Windows\api\lowlevel\lib;..\..\Lib\FMOD Studio API Windows\api\studio\lib</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>luaplus51-1201.lib;OIS.lib;BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;BulletSoftBody_vs2010.lib;ConvexDecomposition_vs2010.lib;LinearMath_vs2010.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>..\..\Lib;$(OGRE_SDK)\lib\Release;$(BULLET_SDK)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;WIN32;_RELEASE;_CONSOLE;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);..\..\Lib\FMOD Studio API Windows\api\studio\inc;..\..\Lib\FMOD Studio API Windows\api\lowlevel\inc</AdditionalIncludeDirectories>
+      <MinimalRebuild>true</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Release;$(BULLET_SDK)\lib;..\..\Lib;$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/release;$(TINYXML_SDK)\tinyxml2\bin\Win32-Release-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Release;$(FREEIMAGE_SDK)/Release;..\..\Lib\FMOD Studio API Windows\api\lowlevel\lib;..\..\Lib\FMOD Studio API Windows\api\studio\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>luaplus51-1201.lib;OgreMain.lib;OIS.lib;BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;BulletSoftBody_vs2010.lib;SDL2_image.lib;ConvexDecomposition_vs2010.lib;LinearMath_vs2010.lib;CEGUIBase.lib;CEGUIExpatParser.lib;CEGUIFalagardWRBase.lib;CEGUIOgreRenderer.lib;CEGUIOpenGLRenderer.lib;CEGUIFreeImageImageCodec.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;opengl32.lib;SDL2.lib;Box2D.lib;FreeGLUT.lib;glu32.lib;winmm.lib;freeimage.lib;fmodL_vc.lib;fmodstudioL_vc.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);..\..\Lib\FMOD Studio API Windows\api\studio\inc;..\..\Lib\FMOD Studio API Windows\api\lowlevel\inc</AdditionalIncludeDirectories>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;WIN32;_DEBUG;DEBUG;_BULK;_CONSOLE;_ITERATOR_DEBUG_LEVEL=2;CEGUI_HAS_DEFAULT_LOGGER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalUsingDirectories>DEBUG</AdditionalUsingDirectories>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>luaplus51-1201.lib;OgreMain_d.lib;OIS_d.lib;BulletCollision_vs2010_debug.lib;BulletDynamics_vs2010_debug.lib;BulletSoftBody_vs2010_debug.lib;SDL2_image.lib;ConvexDecomposition_vs2010_debug.lib;LinearMath_vs2010_debug.lib;CEGUIBase_d.lib;CEGUIExpatParser_d.lib;CEGUIFalagardWRBase_d.lib;CEGUIOgreRenderer_d.lib;CEGUIOpenGLRenderer_d.lib;CEGUIFreeImageImageCodec_d.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;vld.lib;opengl32.lib;SDL2.lib;Box2D.lib;FreeGLUT.lib;winmm.lib;freeimaged.lib;fmodL_vc.lib;fmodstudioL_vc.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Debug;$(BULLET_SDK)\lib;..\..\Lib;$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/debug;$(TINYXML_SDK)\tinyxml2\bin\Win32-Debug-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Debug;$(FREEIMAGE_SDK)/Debug;..\..\Lib\FMOD Studio API Windows\api\lowlevel\lib;..\..\Lib\FMOD Studio API Windows\api\studio\lib</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Animation\AnimatorComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Animation\AnimatorSystem.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Animation\Motion.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Common\MGDAssert.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Common\TextureManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Core\Component.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Core\System.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Engine_BulkBuild.cpp" />
+    <ClCompile Include="Event\EventRegistry.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Factories\ActorFactory.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Factories\FSMFactory.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="FSM\FSM.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="FSM\FSMManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="FSM\Transition.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="FSM\State.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\BaseGfxComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\CameraComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\IGfxComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\LightComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\MeshGfxComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\Renderer2D.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\Renderer3D.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\RendererFactory.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\RenderingSystem.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Graphics\SpriteComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GUI\GUISystem.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GUI\GUIViewComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GUI\Widgets\Button.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GUI\Widgets\Interface\IGUIWidget.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GUI\Widgets\StaticText.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Input\InputManager2D.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Input\InputManager3D.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Input\InputManagerFactory.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="LOG\LOGManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Manager\LuaManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Manager\SystemManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="OtherComponents\TransformationComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\Box2DObject.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\Box2DWorld.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\BulletObject.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\BulletWorld.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\DebugDrawer\DynamicLines.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\DebugDrawer\DynamicRenderable.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\DebugDrawer\PhysicsDebugDrawer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\MotionState.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\PhysicsComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Physics\PhysicsSystem.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Resources\ResourceManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Script\ScriptComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Script\ScriptSystem.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation\AnimatorComponent.h" />
+    <ClInclude Include="Animation\AnimatorSystem.h" />
+    <ClInclude Include="Animation\Motion.h" />
+    <ClInclude Include="Common\Common.h" />
+    <ClInclude Include="Common\DataTypes.h" />
+    <ClInclude Include="Common\MGDAssert.h" />
+    <ClInclude Include="Common\TextureManager.h" />
+    <ClInclude Include="Common\Utilities.h" />
+    <ClInclude Include="Core\Component.h" />
+    <ClInclude Include="Core\Singleton.h" />
+    <ClInclude Include="Core\System.h" />
+    <ClInclude Include="Event\EventRegistry.h" />
+    <ClInclude Include="Event\RegistryEventHandler.h" />
+    <ClInclude Include="Event\RegistryEventPublisher.h" />
+    <ClInclude Include="Factories\ActorFactory.h" />
+    <ClInclude Include="Factories\FSMFactory.h" />
+    <ClInclude Include="Factories\Interface\IActorFactory.h" />
+    <ClInclude Include="FSM\FSM.h" />
+    <ClInclude Include="FSM\FSMManager.h" />
+    <ClInclude Include="FSM\Transition.h" />
+    <ClInclude Include="FSM\State.h" />
+    <ClInclude Include="Graphics\BaseGfxComponent.h" />
+    <ClInclude Include="Graphics\CameraComponent.h" />
+    <ClInclude Include="Graphics\IGfxComponent.h" />
+    <ClInclude Include="Graphics\LightComponent.h" />
+    <ClInclude Include="Graphics\MeshGfxComponent.h" />
+    <ClInclude Include="Graphics\Renderer2D.h" />
+    <ClInclude Include="Graphics\Renderer3D.h" />
+    <ClInclude Include="Graphics\IRenderer.h" />
+    <ClInclude Include="Graphics\RendererFactory.h" />
+    <ClInclude Include="Graphics\RenderingSystem.h" />
+    <ClInclude Include="Graphics\SpriteComponent.h" />
+    <ClInclude Include="GUI\GUISystem.h" />
+    <ClInclude Include="GUI\GUIViewComponent.h" />
+    <ClInclude Include="GUI\Widgets\Button.h" />
+    <ClInclude Include="GUI\Widgets\Interface\IGUIWidget.h" />
+    <ClInclude Include="GUI\Widgets\StaticText.h" />
+    <ClInclude Include="Input\IInputManager.h" />
+    <ClInclude Include="Input\InputManager2D.h" />
+    <ClInclude Include="Input\InputManager3D.h" />
+    <ClInclude Include="Input\InputManagerFactory.h" />
+    <ClInclude Include="LOG\LOGManager.h" />
+    <ClInclude Include="Manager\Interface\IScriptManager.h" />
+    <ClInclude Include="Manager\LuaManager.h" />
+    <ClInclude Include="Manager\SystemManager.h" />
+    <ClInclude Include="OtherComponents\TransformationComponent.h" />
+    <ClInclude Include="Physics\Box2DObject.h" />
+    <ClInclude Include="Physics\Box2DWorld.h" />
+    <ClInclude Include="Physics\BulletObject.h" />
+    <ClInclude Include="Physics\BulletWorld.h" />
+    <ClInclude Include="Physics\DebugDrawer\DynamicLines.h" />
+    <ClInclude Include="Physics\DebugDrawer\DynamicRenderable.h" />
+    <ClInclude Include="Physics\DebugDrawer\PhysicsDebugDrawer.h" />
+    <ClInclude Include="Physics\MotionState.h" />
+    <ClInclude Include="Physics\PhysicsComponent.h" />
+    <ClInclude Include="Physics\PhysicsObject.h" />
+    <ClInclude Include="Physics\PhysicsSystem.h" />
+    <ClInclude Include="Physics\PhysicsUtilities.h" />
+    <ClInclude Include="Physics\PhysicsWorld.h" />
+    <ClInclude Include="Resources\ResourceManager.h" />
+    <ClInclude Include="Script\LuaUtilities.h" />
+    <ClInclude Include="Script\ScriptComponent.h" />
+    <ClInclude Include="Script\ScriptSystem.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
