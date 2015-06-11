@@ -68,26 +68,40 @@ void GUISystem::LoadResources()
 
 void GUISystem::AddGUIComponent()
 {
+	MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_INFO, GUI_CONTEXT, "Adding Widget");
+	//TODO -> Studente MGD
 	// All the actors that contains a GUIViewComponent
 	const EntityComponentTable* actorThatContainsGUIComp = SystemManager::GetSingleton().GetComponentTable(GUIViewComponent::ID);
 
 	// For each actor
 	EntityComponentTable::const_iterator actualActor = actorThatContainsGUIComp->begin();
-	for (; actualActor != actorThatContainsGUIComp->end(); ++actorThatContainsGUIComp){
+	for (; actualActor != actorThatContainsGUIComp->end(); ++actualActor){
 		
 		GUIViewComponent* actualComponent = static_cast<GUIViewComponent*>(SystemManager::GetSingleton().EditSingleComponent(GUIViewComponent::ID, actualActor->first));
 
-		if (actualComponent != nullptr && actualComponent->IsInit()){
-			MGDVector<IGUIWidgets*> widgets = actualComponent->GetGUIWidgets();
+		if (actualComponent != nullptr ){
+			if (!actualComponent->IsInit())
+				actualComponent->Init();
+			//else
+			{
+				MGDVector<IGUIWidgets*> widgets = actualComponent->GetGUIWidgets();
 
-			MGDVector<IGUIWidgets*>::const_iterator actualWidgets = widgets.begin();
-			for (; actualWidgets != widgets.end(); ++actualWidgets){
-				m_pGuiWindow->addChildWindow(GetGUIWidget(*actualWidgets));
+				MGDVector<IGUIWidgets*>::const_iterator actualWidgets = widgets.begin();
+				for (; actualWidgets != widgets.end(); ++actualWidgets){
+					CEGUI::Window* GuiComponent = GetGUIWidget(*actualWidgets);
+					if (GuiComponent)
+					{
+						try
+						{
+							m_pGuiWindow->addChildWindow(GuiComponent);
+							MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_INFO, GUI_CONTEXT, "Added Widget:");
+						}
+						catch (CEGUI::Exception& e){} //Dalle slide???
+					}
+				}
 			}
 		}
 	}
-
-	//TODO -> Studente MGD
 }
 
 void GUISystem::CreateGUIWindow()
@@ -154,17 +168,32 @@ void GUISystem::Update( real /*i_fFrametime*/, real /*i_fTimestep*/ )
 void GUISystem::DeleteGUIComponent(const char* i_szName)
 {
 	//TODO -> Studente MGD
+	//GUIViewComponent* actualComponent = static_cast<GUIViewComponent*>(SystemManager::GetSingleton().EditSingleComponent(GUIViewComponent::ID, ObjectId(i_szName)));
+	const EntityComponentTable* actorThatContainsGUIComp = SystemManager::GetSingleton().GetComponentTable(GUIViewComponent::ID);
 
-	//Blocco di codice che elimina una window di CEGUI
-	/*
-		CEGUI::Window* pObj = m_pGuiWindow->getChild(NOME_WIDGET);
-		MGD_ASSERT(pObj);
-		if (pObj)
+	// For each actor
+	EntityComponentTable::const_iterator actualActor = actorThatContainsGUIComp->begin();
+	for (; actualActor != actorThatContainsGUIComp->end(); ++actualActor){
+
+		GUIViewComponent* actualComponent = static_cast<GUIViewComponent*>(SystemManager::GetSingleton().EditSingleComponent(GUIViewComponent::ID, actualActor->first));
+
+		if (actualComponent != nullptr && actualComponent->GetName() == ObjectId(i_szName) && actualComponent->IsInit())
 		{
-			m_pGuiWindow->removeChildWindow(pObj->getID());
-			m_pGUIWindowManager->destroyWindow(pObj);
+			MGDVector<IGUIWidgets*> widgets = actualComponent->GetGUIWidgets();
+
+			MGDVector<IGUIWidgets*>::const_iterator actualWidgets = widgets.begin();
+			for (; actualWidgets != widgets.end(); ++actualWidgets)
+			{
+				CEGUI::Window* pObj = m_pGuiWindow->getChild((*actualWidgets)->GetName());
+				MGD_ASSERT(pObj);
+				if (pObj)
+				{
+					m_pGuiWindow->removeChildWindow(pObj->getID());
+					m_pGUIWindowManager->destroyWindow(pObj);
+				}
+			}
 		}
-	*/
+	}
 }
 
 CEGUI::Window* GUISystem::GetGUIWidget(IGUIWidgets* i_oGUIWidget)

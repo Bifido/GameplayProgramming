@@ -15,6 +15,7 @@ namespace MGD_LOG
 
 	LOGManager::LOGManager()
 	{
+		//TODO -> Studente MGD
 		typedef tinyxml2::XMLDocument XMLDoc;
 		typedef tinyxml2::XMLElement XMLElem;
 
@@ -42,12 +43,6 @@ namespace MGD_LOG
 				} 
 			}
 		}
-		//TODO -> Studente MGD
-		
-		/*	Funzione che aggiunge il contesto
-
-			AddLogContext(CONTESTO_COME_OBJECTID);
-		*/
 	}
 
 	LOGManager::~LOGManager()

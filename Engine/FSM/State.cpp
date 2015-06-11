@@ -15,11 +15,19 @@ State::State(const std::string& i_szName)
 State::~State(void)
 {
 	//TODO -> Studente MGD
+	MGDMap<TransitionID, Transition*>::iterator it = m_TransitionMap.begin();
+	for (; it != m_TransitionMap.end(); ++it)
+	{
+		delete it->second;
+	}
+
+	m_TransitionMap.clear();
 }
 
 void State::AddTransition(Transition* i_pTransition)
 {
 	//TODO -> Studente MGD
+	m_TransitionMap[i_pTransition->GetName()] = i_pTransition;
 }
 
 void State::OnEnter()
@@ -48,8 +56,11 @@ void State::OnExit()
 
 const StateID& State::DoTransition( const char* i_szTransition )
 {
-	//TODO -> Studente MGD
-	return ObjectId();
+	MGDMap<TransitionID, Transition*>::iterator it = m_TransitionMap.find(ObjectId(i_szTransition));
+	if (it != m_TransitionMap.end()) {
+		return (*it).second->GetStateTargetID();
+	}
+	return INVALID_HASH;
 }
 
 void State::SetScriptOnEnter( const char* i_szFilename )

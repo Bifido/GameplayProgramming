@@ -32,6 +32,7 @@ void GUIViewComponent::Init()
 	if(!m_szScript.empty())
 	{
 		LuaManager::GetSingleton().ExecuteFile(m_szScript.c_str());
+		SetInit();
 	}
 }
 
@@ -63,11 +64,14 @@ LuaPlus::LuaObject GUIViewComponent::GetLuaWidget(const char* i_szName)
 {
 	//TODO -> Studente MGD
 	MGDVector<IGUIWidgets*>::const_iterator widgetIter = m_GUIWidgets.begin();
-	
-	for (; widgetIter != m_GUIWidgets.end(); ++widgetIter){
-		
-	}
+
 	// Ogni GUIWidget ha un Lua object
+	for (; widgetIter != m_GUIWidgets.end(); ++widgetIter){
+		if ((*widgetIter)->GetName().compare(i_szName) == 0)
+		{
+			return (*widgetIter)->GetLuaObject();
+		}
+	}
 
 	MGD_ASSERT(0);
 	return LuaPlus::LuaObject();
