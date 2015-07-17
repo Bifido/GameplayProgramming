@@ -167,9 +167,6 @@
     <ClCompile Include="Physics\DebugDrawer\DynamicLines.cpp">
       <Filter>Physics\DebugDrawer</Filter>
     </ClCompile>
-    <ClCompile Include="Engine_BulkBuild.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GUI\Widgets\Interface\IGUIWidget.cpp">
       <Filter>GUI\Widgets\Interface</Filter>
     </ClCompile>
@@ -220,6 +217,12 @@
     </ClCompile>
     <ClCompile Include="Input\InputManagerFactory.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine_BulkBuild.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\Widgets\CheckBox.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -411,6 +414,9 @@
     </ClInclude>
     <ClInclude Include="Common\TextureManager.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Widgets\CheckBox.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

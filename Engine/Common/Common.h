@@ -21,6 +21,7 @@
 #include "../Animation/AnimatorComponent.h"
 #include "../Input/InputManagerFactory.h"
 #include "../Input/IInputManager.h"
+#include "../GUI/GUIViewComponent.h"
 
 static std::string CONFIG("Data/Config.xml");
 
@@ -54,4 +55,6 @@ static void RegisterCommonScriptFunctions()
 	LightComponent::RegisterScriptFunction();
 	SpriteComponent::RegisterScriptFunction();
 	AnimatorComponent::RegisterScriptFunction();
+	//Added
+	GUIViewComponent::RegisterScriptFunctions();
 }

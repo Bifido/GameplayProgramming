@@ -32,7 +32,6 @@ void GUIViewComponent::Init()
 	if(!m_szScript.empty())
 	{
 		LuaManager::GetSingleton().ExecuteFile(m_szScript.c_str());
-		SetInit();
 	}
 }
 
@@ -58,6 +57,7 @@ void GUIViewComponent::RegisterScriptFunctions()
 
 	Button::RegisterScriptFunctions();
 	StaticText::RegisterScriptFunctions();
+	CheckBox::RegisterScriptFunctions();
 }
 
 LuaPlus::LuaObject GUIViewComponent::GetLuaWidget(const char* i_szName)
@@ -115,6 +115,11 @@ bool GUIViewComponent::SetupFromXml( const tinyxml2::XMLElement* pNode )
 				else if(strcmp(szType,"StaticText") == 0)
 				{
 					pGUIWidget = new StaticText(this);
+					pGUIWidget->SetType(szType);
+				}
+				else if (strcmp(szType, "CheckBox") == 0)
+				{
+					pGUIWidget = new CheckBox(this);
 					pGUIWidget->SetType(szType);
 				}
 				else

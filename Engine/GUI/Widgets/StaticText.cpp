@@ -114,6 +114,7 @@ CEGUI::DefaultWindow* StaticText::Create( IGUIWidgets* i_oWidget, CEGUI::Window*
 void StaticText::SetTextFromScript(const char* i_szText)
 {
 	m_szText = i_szText;
+	m_pObject->setText(m_szText);
 }
 
 void StaticText::SetInt(int i_iVal)

@@ -122,6 +122,9 @@ bool AnimatorComponent::SetupFromXml( const tinyxml2::XMLElement* pNode )
 
 void AnimatorComponent::SetState(const char* i_pState)
 {
+	m_oCurrentState = ObjectId(i_pState);
+
+	m_bDoTransition = true;
 }
 
 

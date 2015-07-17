@@ -321,7 +321,7 @@ void AnimatorSystem::Update(real /*i_fFrametime*/, real i_fTimestep)
 									oMotionProcess.m_oType = MotionSpriteAnimation::ID;
 									oMotionProcess.m_pMotion = pMotion;
 									oMotionProcess.m_pComponent = pTransformationComponent;
-									//ManageSpriteAnimation(pMotion, pSpriteComponent);
+									//ManageSpriteAnimation(i_fTimestep, pMotion, pTransformationComponent);
 								}
 							}
 						}

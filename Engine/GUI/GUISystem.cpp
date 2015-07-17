@@ -8,6 +8,7 @@
 #include "Widgets/Interface/IGUIWidget.h"
 #include "Widgets/Button.h"
 #include "Widgets/StaticText.h"
+#include "Widgets/CheckBox.h"
 #include "SDL_events.h"
 #include "../Common/Common.h"
 
@@ -20,8 +21,6 @@ GUISystem::GUISystem()
 	, m_pGUIWindowManager(NULL)
 	, m_pGuiWindow(NULL)
 {
-	GUIViewComponent::RegisterScriptFunctions();
-
 }
 
 GUISystem::~GUISystem()
@@ -68,7 +67,7 @@ void GUISystem::LoadResources()
 
 void GUISystem::AddGUIComponent()
 {
-	MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_INFO, GUI_CONTEXT, "Adding Widget");
+	//MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_INFO, GUI_CONTEXT, "Adding Widget");
 	//TODO -> Studente MGD
 	// All the actors that contains a GUIViewComponent
 	const EntityComponentTable* actorThatContainsGUIComp = SystemManager::GetSingleton().GetComponentTable(GUIViewComponent::ID);
@@ -79,9 +78,10 @@ void GUISystem::AddGUIComponent()
 		
 		GUIViewComponent* actualComponent = static_cast<GUIViewComponent*>(SystemManager::GetSingleton().EditSingleComponent(GUIViewComponent::ID, actualActor->first));
 
-		if (actualComponent != nullptr ){
-			if (!actualComponent->IsInit())
-				actualComponent->Init();
+		if (actualComponent != nullptr && !actualComponent->IsInit())
+		{	
+			//if (!actualComponent->IsInit())
+			//	actualComponent->SetInit();
 			//else
 			{
 				MGDVector<IGUIWidgets*> widgets = actualComponent->GetGUIWidgets();
@@ -96,9 +96,10 @@ void GUISystem::AddGUIComponent()
 							m_pGuiWindow->addChildWindow(GuiComponent);
 							MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_INFO, GUI_CONTEXT, "Added Widget:");
 						}
-						catch (CEGUI::Exception& e){} //Dalle slide???
+						catch (CEGUI::Exception& e){}
 					}
 				}
+				actualComponent->SetInit();
 			}
 		}
 	}
@@ -216,6 +217,10 @@ CEGUI::Window* GUISystem::GetGUIWidget(IGUIWidgets* i_oGUIWidget)
 				else if (strcmp(szType.c_str(), "StaticText") == 0)
 				{
 					return StaticText::Create(i_oGUIWidget, pObject);
+				}
+				else if (strcmp(szType.c_str(), "CheckBox") == 0)
+				{
+					return CheckBox::Create(i_oGUIWidget, pObject);
 				}
 				else
 				{

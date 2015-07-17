@@ -292,6 +292,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="GUI\Widgets\CheckBox.cpp" />
     <ClCompile Include="GUI\Widgets\Interface\IGUIWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
@@ -417,6 +418,7 @@
     <ClInclude Include="GUI\GUISystem.h" />
     <ClInclude Include="GUI\GUIViewComponent.h" />
     <ClInclude Include="GUI\Widgets\Button.h" />
+    <ClInclude Include="GUI\Widgets\CheckBox.h" />
     <ClInclude Include="GUI\Widgets\Interface\IGUIWidget.h" />
     <ClInclude Include="GUI\Widgets\StaticText.h" />
     <ClInclude Include="Input\IInputManager.h" />
