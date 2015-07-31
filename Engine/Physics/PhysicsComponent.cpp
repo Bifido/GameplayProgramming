@@ -369,6 +369,33 @@ void PhysicsComponent::SetVelocity( const Vec3& i_oVelocity)
 	}
 }
 
+const Vec3 PhysicsComponent::GetVec3Velocity() const
+{
+	Vec3 oVelocity;
+	if (m_eEngineType == eBullet)
+	{
+		BulletObject* pBulletObject = static_cast<BulletObject*>(m_pObject);
+		if (pBulletObject)
+		{
+			Physics::btVector3ToVec3(pBulletObject->GetRigidBody()->getLinearVelocity(), oVelocity);
+		}
+	}
+	else if (m_eEngineType == eBox2D)
+	{
+		Box2DObject* pBox2DObject = static_cast<Box2DObject*>(m_pObject);
+		if (pBox2DObject)
+		{
+			Vec2 oVel2;
+			Physics::b2Vec2ToVec2(pBox2DObject->GetRigidBody()->GetLinearVelocity(), oVel2);
+			oVelocity.x = oVel2.x;
+			oVelocity.y = oVel2.y;
+			oVelocity.z = 0.0f;
+		}
+	}
+
+	return oVelocity;
+}
+
 /************************* LUA *******************/
 
 void PhysicsComponent::CreateLuaObject()

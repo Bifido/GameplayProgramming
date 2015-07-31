@@ -153,3 +153,4 @@ static const ObjectId INVALID_HASH = ObjectId();
 typedef ObjectId			StateID;
 typedef ObjectId			TransitionID;
 typedef ObjectId			FSMID;
+typedef ObjectId			AudioID;

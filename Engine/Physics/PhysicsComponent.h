@@ -151,6 +151,7 @@ public:
 
 	void SetVelocity( const Vec3& i_oVelocity);
 	LuaPlus::LuaObject GetVelocity() const;
+	const Vec3 GetVec3Velocity() const;
 
 	void SyncronizePosition();	
 

@@ -20,12 +20,14 @@
 #include "Animation\AnimatorSystem.h"
 #include "Physics\Box2DWorld.h"
 #include "Common\TextureManager.h"
+#include "Audio\AudioSystem.h"
 
 RenderingSystem* pRenderingSystem = NULL;
 PhysicsSystem* pPhysicsSystem = NULL;
 GUISystem* pGuiSystem = NULL;
 ScriptSystem* pScriptSystem = NULL;
 AnimatorSystem* pAnimatorSystem = NULL;
+AudioSystem* pAudioSystem = NULL;
 
 void InitGlog()
 {
@@ -94,11 +96,14 @@ void InitInstance()
 
 	pAnimatorSystem = new AnimatorSystem();
 
+	pAudioSystem = new AudioSystem();
+
 	SystemManager::GetSingleton().AddSystem(pRenderingSystem);
 	SystemManager::GetSingleton().AddSystem(pPhysicsSystem);
 	SystemManager::GetSingleton().AddSystem(pScriptSystem);
 	SystemManager::GetSingleton().AddSystem(pAnimatorSystem);
 	SystemManager::GetSingleton().AddSystem(pGuiSystem);
+	SystemManager::GetSingleton().AddSystem(pAudioSystem);
 
 	LuaManager::GetSingleton().ExecuteFile("Data/Scripts/StartGame.lua");
 }

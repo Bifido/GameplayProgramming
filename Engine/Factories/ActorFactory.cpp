@@ -12,6 +12,8 @@
 #include "..\Graphics\MeshGfxComponent.h"
 #include "..\Graphics\SpriteComponent.h"
 #include "..\Animation\AnimatorComponent.h"
+#include "..\Audio\AudioListenerComponent.h"
+#include "..\Audio\AudioSourceComponent.h"
 
 void ActorFactory::CreateInstance()
 {
@@ -51,6 +53,8 @@ void ActorFactory::RegisterComponents()
 	m_Factory.Register<GUIViewComponent>(GUIViewComponent::ID);
 	m_Factory.Register<SpriteComponent>(SpriteComponent::ID);
 	m_Factory.Register<AnimatorComponent>(AnimatorComponent::ID);
+	m_Factory.Register<AudioSourceComponent>(AudioSourceComponent::ID);
+	m_Factory.Register<AudioListenerComponent>(AudioListenerComponent::ID);
 
 }
 

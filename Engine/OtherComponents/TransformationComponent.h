@@ -96,7 +96,8 @@ private:
 	/***************** LUA *************/
 	void			CreateLuaObject();
 	/*********************************/
-	RegistryEventPublisher<void>	m_oEvent;
+	RegistryEventPublisher<void>	m_oEventRot;
+	RegistryEventPublisher<void>	m_oEventPos;
 
 	Quaternion						m_oOrientation;	
 	Vec3							m_oOrigin;

@@ -44,10 +44,10 @@ void CheckBox::SetupFromScript(LuaPlus::LuaObject i_oScript)
 	}
 }
 
-void CheckBox::SetOnSelectScriptFunction(LuaPlus::LuaObject oScriptFunc)
-{
-
-}
+//void CheckBox::SetOnSelectScriptFunction(LuaPlus::LuaObject oScriptFunc)
+//{
+//
+//}
 
 bool CheckBox::OnCheckStateChanged(const CEGUI::EventArgs& i_oParam)
 {

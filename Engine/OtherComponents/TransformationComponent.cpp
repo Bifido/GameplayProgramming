@@ -23,7 +23,11 @@ void TransformationComponent::Init()
 {
 	char szEventName[128];
 	sprintf_s(szEventName,"%s/POSITION_CHANGED",GetOwnerID().GetDebugName().c_str());
-	m_oEvent.SetPath(ObjectId(szEventName));	
+	m_oEventPos.SetPath(ObjectId(szEventName));
+
+	char szEventNameRot[128];
+	sprintf_s(szEventNameRot, "%s/ROTATION_CHANGED", GetOwnerID().GetDebugName().c_str());
+	m_oEventRot.SetPath(ObjectId(szEventNameRot));
 }
 
 const Vec3& TransformationComponent::GetPosition() const
@@ -93,13 +97,13 @@ Vec3	TransformationComponent::GetZ() const
 void TransformationComponent::SetPosition(const Vec3& i_oPosition)
 {
 	m_oOrigin = i_oPosition;
-	m_oEvent.Raise();
+	m_oEventPos.Raise();
 }
 
 void TransformationComponent::Translate(const Vec3& i_oTranslation)
 {
 	m_oOrigin += i_oTranslation;
-	m_oEvent.Raise();
+	m_oEventPos.Raise();
 }
 
 const Quaternion& TransformationComponent::GetRotation() const
@@ -118,12 +122,13 @@ Matrix33 TransformationComponent::GetRotationMatrix() const
 void TransformationComponent::SetRotation(const Quaternion& i_oRotation)
 {
 	m_oOrientation = i_oRotation;
+	m_oEventRot.Raise();
 }
 
 void TransformationComponent::SetRotation(const Matrix33& i_oRotation)
 {
 	m_oOrientation.FromRotationMatrix(i_oRotation);
-	m_oEvent.Raise();
+	m_oEventRot.Raise();
 }
 
 bool TransformationComponent::HasScale() const
@@ -144,16 +149,19 @@ const Vec3& TransformationComponent::GetScale() const
 void TransformationComponent::SetPositionFromPhysics( const Vec3& i_oPosition )
 {
 	m_oOrigin = i_oPosition;
+	m_oEventPos.Raise();
 }
 
 void TransformationComponent::SetRotationFromPhysics( const Quaternion& i_Rotation )
 {
 	m_oOrientation = i_Rotation;
+	m_oEventRot.Raise();
 }
 
 void TransformationComponent::SetRotationFromPhysics( const Matrix33& i_oRotation )
 {
 	m_oOrientation.FromRotationMatrix(i_oRotation);
+	m_oEventRot.Raise();
 }
 
 void TransformationComponent::RotateAround( const Vec3& i_Axis, const real i_Angle )

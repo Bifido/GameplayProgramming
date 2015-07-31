@@ -145,7 +145,7 @@ xcopy /R /Y ..\Engine\$(Platform)\$(Configuration)\Engine.lib ..\Bin\Build</Comm
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../Engine;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(GLOG_SDK)\src\windows;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Engine;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OPENAL_SDK)\includes;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(GLOG_SDK)\src\windows;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>WIN32;_DEBUG;DEBUG;_BULK;_CONSOLE;GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;_ITERATOR_DEBUG_LEVEL=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -154,8 +154,8 @@ xcopy /R /Y ..\Engine\$(Platform)\$(Configuration)\Engine.lib ..\Bin\Build</Comm
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OGRE_SDK)/boost/lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(GLEW_SDK)\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;OpenAL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)/boost/lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(GLEW_SDK)\lib\Release\Win32;$(OPENAL_SDK)\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>

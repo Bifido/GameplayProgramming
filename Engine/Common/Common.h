@@ -19,6 +19,8 @@
 #include "LuaObject.h"
 #include "../Graphics/SpriteComponent.h"
 #include "../Animation/AnimatorComponent.h"
+#include "../Audio/AudioListenerComponent.h"
+#include "../Audio/AudioSourceComponent.h"
 #include "../Input/InputManagerFactory.h"
 #include "../Input/IInputManager.h"
 #include "../GUI/GUIViewComponent.h"
@@ -57,4 +59,6 @@ static void RegisterCommonScriptFunctions()
 	AnimatorComponent::RegisterScriptFunction();
 	//Added
 	GUIViewComponent::RegisterScriptFunctions();
+	AudioListenerComponent::RegisterScriptFunction();
+	AudioSourceComponent::RegisterScriptFunction();
 }

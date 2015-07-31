@@ -99,6 +99,7 @@
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">
     <ClCompile>
@@ -107,7 +108,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;WIN32;_RELEASE;_BULK;_CONSOLE;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);$(FMOD_SDK)\api\studio\inc;$(FMOD_SDK)\api\lowlevel\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);$(FMOD_SDK)\api\studio\inc;$(FMOD_SDK)\api\lowlevel\inc;$(OPENAL_SDK)\includes</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -119,10 +120,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>luaplus51-1201.lib;OgreMain.lib;OIS.lib;BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;BulletSoftBody_vs2010.lib;SDL2_image.lib;ConvexDecomposition_vs2010.lib;LinearMath_vs2010.lib;CEGUIBase.lib;CEGUIExpatParser.lib;CEGUIFalagardWRBase.lib;CEGUIOgreRenderer.lib;CEGUIOpenGLRenderer.lib;CEGUIFreeImageImageCodec.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;opengl32.lib;SDL2.lib;Box2D.lib;winmm.lib;freeimage.lib;fmodL_vc.lib;fmodstudioL_vc.lib;FreeGLUT.lib;</AdditionalDependencies>
+      <AdditionalDependencies>luaplus51-1201.lib;OpenAL32.lib;OgreMain.lib;OIS.lib;BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;BulletSoftBody_vs2010.lib;SDL2_image.lib;ConvexDecomposition_vs2010.lib;LinearMath_vs2010.lib;CEGUIBase.lib;CEGUIExpatParser.lib;CEGUIFalagardWRBase.lib;CEGUIOgreRenderer.lib;CEGUIOpenGLRenderer.lib;CEGUIFreeImageImageCodec.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;opengl32.lib;SDL2.lib;Box2D.lib;winmm.lib;freeimage.lib;fmodL_vc.lib;fmodstudioL_vc.lib;FreeGLUT.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Release;$(BULLET_SDK)\lib;$(LIB_DIR);$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/release;$(TINYXML_SDK)\tinyxml2\bin\Win32-Release-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Release;$(FREEIMAGE_SDK)/Release;$(FMOD_SDK)\api\lowlevel\lib;$(FMOD_SDK)\api\studio\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Release;$(BULLET_SDK)\lib;$(LIB_DIR);$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/release;$(TINYXML_SDK)\tinyxml2\bin\Win32-Release-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Release;$(FREEIMAGE_SDK)/Release;$(FMOD_SDK)\api\lowlevel\lib;$(FMOD_SDK)\api\studio\lib;$(OPENAL_SDK)/libs</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
@@ -156,7 +157,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;WIN32;_RELEASE;_CONSOLE;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);$(FMOD_SDK)\api\studio\inc;$(FMOD_SDK)\api\lowlevel\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);$(FMOD_SDK)\api\studio\inc;$(FMOD_SDK)\api\lowlevel\inc;$(OPENAL_SDK)\includes</AdditionalIncludeDirectories>
       <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
@@ -166,21 +167,21 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Release;$(BULLET_SDK)\lib;$(LIB_DIR);$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/release;$(TINYXML_SDK)\tinyxml2\bin\Win32-Release-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Release;$(FREEIMAGE_SDK)/Release;$(FMOD_SDK)\api\lowlevel\lib;$(FMOD_SDK)\api\studio\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>luaplus51-1201.lib;OgreMain.lib;OIS.lib;BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;BulletSoftBody_vs2010.lib;SDL2_image.lib;ConvexDecomposition_vs2010.lib;LinearMath_vs2010.lib;CEGUIBase.lib;CEGUIExpatParser.lib;CEGUIFalagardWRBase.lib;CEGUIOgreRenderer.lib;CEGUIOpenGLRenderer.lib;CEGUIFreeImageImageCodec.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;opengl32.lib;SDL2.lib;Box2D.lib;FreeGLUT.lib;glu32.lib;winmm.lib;freeimage.lib;fmodL_vc.lib;fmodstudioL_vc.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Release;$(BULLET_SDK)\lib;$(LIB_DIR);$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/release;$(TINYXML_SDK)\tinyxml2\bin\Win32-Release-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Release;$(FREEIMAGE_SDK)/Release;$(FMOD_SDK)\api\lowlevel\lib;$(FMOD_SDK)\api\studio\lib;$(OPENAL_SDK)/libs</AdditionalLibraryDirectories>
+      <AdditionalDependencies>luaplus51-1201.lib;OpenAL32.lib;OgreMain.lib;OIS.lib;BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;BulletSoftBody_vs2010.lib;SDL2_image.lib;ConvexDecomposition_vs2010.lib;LinearMath_vs2010.lib;CEGUIBase.lib;CEGUIExpatParser.lib;CEGUIFalagardWRBase.lib;CEGUIOgreRenderer.lib;CEGUIOpenGLRenderer.lib;CEGUIFreeImageImageCodec.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;opengl32.lib;SDL2.lib;Box2D.lib;FreeGLUT.lib;glu32.lib;winmm.lib;freeimage.lib;fmodL_vc.lib;fmodstudioL_vc.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);$(FMOD_SDK)\api\studio\inc;$(FMOD_SDK)\api\lowlevel\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(GLOG_SDK)\src\windows;$(LUAPLUS_SDK)\Src\LuaPlus;$(OGRE_SDK)\include\OGRE;$(OGRE_SDK)\include\OIS\win32;$(BULLET_SDK)\src;$(TINYXML_SDK);$(CEGUI_SDK)\cegui\include;$(OGRE_SDK)\boost;$(VISUAL_LEAK_DETECTOR)/include;$(SDL_SDK)/include;$(BOX2D_SDK);$(FREEIMAGE_SDK)\Source;$(SDL2_IMAGE_SDK);$(FMOD_SDK)\api\studio\inc;$(FMOD_SDK)\api\lowlevel\inc;$(OPENAL_SDK)\includes</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;WIN32;_DEBUG;DEBUG;_BULK;_CONSOLE;_ITERATOR_DEBUG_LEVEL=2;CEGUI_HAS_DEFAULT_LOGGER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalUsingDirectories>DEBUG</AdditionalUsingDirectories>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>luaplus51-1201.lib;OgreMain_d.lib;OIS_d.lib;BulletCollision_vs2010_debug.lib;BulletDynamics_vs2010_debug.lib;BulletSoftBody_vs2010_debug.lib;SDL2_image.lib;ConvexDecomposition_vs2010_debug.lib;LinearMath_vs2010_debug.lib;CEGUIBase_d.lib;CEGUIExpatParser_d.lib;CEGUIFalagardWRBase_d.lib;CEGUIOgreRenderer_d.lib;CEGUIOpenGLRenderer_d.lib;CEGUIFreeImageImageCodec_d.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;vld.lib;opengl32.lib;SDL2.lib;Box2D.lib;FreeGLUT.lib;winmm.lib;freeimaged.lib;fmodL_vc.lib;fmodstudioL_vc.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Debug;$(BULLET_SDK)\lib;$(LIB_DIR);$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/debug;$(TINYXML_SDK)\tinyxml2\bin\Win32-Debug-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Debug;$(FREEIMAGE_SDK)/Debug;$(FMOD_SDK)\api\lowlevel\lib;$(FMOD_SDK)\api\studio\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>luaplus51-1201.lib;OpenAL32.lib;OgreMain_d.lib;OIS_d.lib;BulletCollision_vs2010_debug.lib;BulletDynamics_vs2010_debug.lib;BulletSoftBody_vs2010_debug.lib;SDL2_image.lib;ConvexDecomposition_vs2010_debug.lib;LinearMath_vs2010_debug.lib;CEGUIBase_d.lib;CEGUIExpatParser_d.lib;CEGUIFalagardWRBase_d.lib;CEGUIOgreRenderer_d.lib;CEGUIOpenGLRenderer_d.lib;CEGUIFreeImageImageCodec_d.lib;libglog_static.lib;libboost_thread-vc100-mt-gd-1_49.lib;tinyxml2.lib;vld.lib;opengl32.lib;SDL2.lib;Box2D.lib;FreeGLUT.lib;winmm.lib;freeimaged.lib;fmodL_vc.lib;fmodstudioL_vc.lib;OpenAL32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OGRE_SDK)\lib\Debug;$(BULLET_SDK)\lib;$(OPENAL_SDK)/libs;$(LIB_DIR);$(OGRE_SDK)/boost/lib;$(CEGUI_SDK)/lib;$(GLOG_SDK)/debug;$(TINYXML_SDK)\tinyxml2\bin\Win32-Debug-Lib;$(VISUAL_LEAK_DETECTOR)/lib/Win32;$(BOX2D_SDK)/Build/vs2012/bin/Debug;$(FREEIMAGE_SDK)/Debug;$(FMOD_SDK)\api\lowlevel\lib;$(FMOD_SDK)\api\studio\lib;$(OPENAL_SDK)/libs</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -196,6 +197,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Audio\AudioFile.cpp" />
+    <ClCompile Include="Audio\AudioListenerComponent.cpp" />
+    <ClCompile Include="Audio\AudioSourceComponent.cpp" />
+    <ClCompile Include="Audio\AudioSystem.cpp" />
     <ClCompile Include="Common\MGDAssert.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_BulkBuild|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_BulkBuild|Win32'">true</ExcludedFromBuild>
@@ -386,6 +391,11 @@
     <ClInclude Include="Animation\AnimatorComponent.h" />
     <ClInclude Include="Animation\AnimatorSystem.h" />
     <ClInclude Include="Animation\Motion.h" />
+    <ClInclude Include="Audio\AudioFile.h" />
+    <ClInclude Include="Audio\AudioListenerComponent.h" />
+    <ClInclude Include="Audio\AudioSourceComponent.h" />
+    <ClInclude Include="Audio\AudioSystem.h" />
+    <ClInclude Include="Audio\AudioUtils.h" />
     <ClInclude Include="Common\Common.h" />
     <ClInclude Include="Common\DataTypes.h" />
     <ClInclude Include="Common\MGDAssert.h" />

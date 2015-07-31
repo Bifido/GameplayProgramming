@@ -17,7 +17,7 @@ public:
 	virtual bool SetupFromXml(const tinyxml2::XMLElement* pNode);
 	virtual void SetupFromScript(LuaPlus::LuaObject i_oScript);
 
-	void SetOnSelectScriptFunction(LuaPlus::LuaObject oScriptFunc);
+	//void SetOnSelectScriptFunction(LuaPlus::LuaObject oScriptFunc);
 	bool OnCheckStateChanged(const CEGUI::EventArgs& i_oParam);
 
 	static void RegisterScriptFunctions();

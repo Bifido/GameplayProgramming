@@ -163,15 +163,31 @@ void EventRegistry::EventHandler::UnsubscribeEventHandler()
 				{
 					pEventHandler = NULL;
 				}
+				(*it).second = pEventHandler;
 			}
 			else
 			{
-				while(pEventHandler->GetNextHandler() && pEventHandler->GetNextHandler() != this)
+				//while(pEventHandler->GetNextHandler() && pEventHandler->GetNextHandler() != this)
+				//{
+				//	pEventHandler = pEventHandler->GetNextHandler();
+				//}
+
+				////if (!pEventHandler->GetNextHandler())
+				//pEventHandler->SetNextHandler(this->GetNextHandler());
+
+				while (pEventHandler->GetNextHandler() && pEventHandler->GetNextHandler() != this)
 				{
 					pEventHandler = pEventHandler->GetNextHandler();
 				}
 
-				pEventHandler->SetNextHandler(this->GetNextHandler());
+				if (pEventHandler->GetNextHandler() == this)
+				{
+					pEventHandler->SetNextHandler(this->GetNextHandler());
+				}
+				else
+				{
+					//Doesn't found
+				}
 			}
 		}
 	

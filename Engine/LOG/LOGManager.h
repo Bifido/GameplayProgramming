@@ -15,6 +15,7 @@ static const ObjectId APPLICATION_CONTEXT("APPLICATION_CONTEXT");
 static const ObjectId PHYSICS_CONTEXT("PHYSICS_CONTEXT");
 static const ObjectId GUI_CONTEXT("GUI_CONTEXT");
 static const ObjectId MAIN_CONTEXT("MAIN_CONTEXT");
+static const ObjectId AUDIO_CONTEXT("AUDIO_CONTEXT");
 
 namespace MGD_LOG
 {

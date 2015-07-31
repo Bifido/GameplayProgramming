@@ -94,7 +94,7 @@ void GUISystem::AddGUIComponent()
 						try
 						{
 							m_pGuiWindow->addChildWindow(GuiComponent);
-							MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_INFO, GUI_CONTEXT, "Added Widget:");
+							MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_INFO, GUI_CONTEXT, "Added Widget: %s", GuiComponent->getName().c_str());
 						}
 						catch (CEGUI::Exception& e){}
 					}
