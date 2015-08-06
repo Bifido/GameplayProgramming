@@ -27,8 +27,11 @@ private:
 	void SetSelectedFromScript(bool i_bSelected);
 	bool IsSelectedFromScript();
 
+	void SetCheckable(bool i_bCheckable);
+
 	void CreateLuaObject();
 	bool m_bSelected;
+	bool m_bCheckable;
 	CEGUI::Checkbox* m_pObject;
 
 	static const std::string CHECKBOX_WIDGET_TABLE;

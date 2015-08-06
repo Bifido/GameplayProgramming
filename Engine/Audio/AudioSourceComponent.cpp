@@ -22,16 +22,17 @@ AudioSourceComponent::AudioSourceComponent(std::string i_szOwnerID, bool i_bIsCr
 
 	m_bLooping = false;
 	m_bPlayAwake = false;
+	m_bStraming = false;
 }
 
 
 AudioSourceComponent::~AudioSourceComponent()
 {
+	if (m_uSource != AL_INVALID)
+		alDeleteSources(1, &m_uSource); //Delete the OpenAL Source
+
 	AudioSystem* audioSystem = dynamic_cast<AudioSystem*>(SystemManager::GetSingleton().EditSystem(AudioSystem::ID));
 	audioSystem->UnloadAudioFile(m_oAudioFile);
-
-	if(m_uSource != AL_INVALID)
-		alDeleteSources(1, &m_uSource); //Delete the OpenAL Source
 
 	MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_INFO, AUDIO_CONTEXT, "AudioSourceComponent deleted!; %s", GetOwnerID().GetDebugName().c_str());
 }
@@ -58,6 +59,7 @@ void AudioSourceComponent::Init()
 		if (audioFile && audioFile->IsLoaded())
 		{
 			alSourcei(m_uSource, AL_BUFFER, audioFile->GetBuffer());
+			alSourcei(m_uSource, AL_SOURCE_RELATIVE, AL_TRUE);
 
 			SetPitch(m_fPitch);
 			SetGain(m_fGain);
@@ -89,8 +91,15 @@ void AudioSourceComponent::RegisterScriptFunction()
 {
 	LuaPlus::LuaObject metaTable = LuaManager::GetSingleton().GetGlobalVars().CreateTable(METATABLE_NAME);
 	metaTable.SetObject("__index", metaTable); // it’s also its own metatable
-	// register the ??() function
+	
 	metaTable.RegisterObjectDirect("Play", (AudioSourceComponent*)0, &AudioSourceComponent::Play);
+	metaTable.RegisterObjectDirect("Stop", (AudioSourceComponent*)0, &AudioSourceComponent::Stop);
+	metaTable.RegisterObjectDirect("Pause", (AudioSourceComponent*)0, &AudioSourceComponent::Pause);
+	metaTable.RegisterObjectDirect("SetLooping", (AudioSourceComponent*)0, &AudioSourceComponent::SetLoopingFromScript);
+	metaTable.RegisterObjectDirect("SetPitch", (AudioSourceComponent*)0, &AudioSourceComponent::SetPitchFromScript);
+	metaTable.RegisterObjectDirect("SetGain", (AudioSourceComponent*)0, &AudioSourceComponent::SetGainFromScript);
+	metaTable.RegisterObjectDirect("SetPlayAwake", (AudioSourceComponent*)0, &AudioSourceComponent::SetPlayAwakeFromScript);
+
 }
 
 void AudioSourceComponent::CreateFromTemplate(Component* i_pComponent, const ObjectId& i_oOwner)
@@ -125,7 +134,7 @@ bool AudioSourceComponent::SetupFromXml(const tinyxml2::XMLElement* pNode)
 		{
 			const char* type = pAudioFile->Attribute("type");
 			std::string filename(pAudioFile->Attribute("filename"));
-			bool directLoad = pAudioFile->Attribute("directLoad");
+			bool directLoad = pAudioFile->BoolAttribute("directLoad");
 
 			AudioSystem* audioSystem = dynamic_cast<AudioSystem*>(SystemManager::GetSingleton().EditSystem(AudioSystem::ID));
 			m_oAudioFile = audioSystem->AddAudioFile(filename, type, directLoad);
@@ -263,15 +272,50 @@ void AudioSourceComponent::Play()
 	alSourcePlay(m_uSource);
 }
 
-//alGenSources(1, &source);                                                   //Generate one OpenAL Source and link to "source"
-//Source
-//alSourcei(source, AL_BUFFER, buffer);                                 //Link the buffer to the source
-//alSourcef(source, AL_PITCH, 1.0f);                                 //Set the pitch of the source
-//alSourcef(source, AL_GAIN, 1.0f);                                 //Set the gain of the source
-//alSourcefv(source, AL_POSITION, SourcePos);                                 //Set the position of the source
-//alSourcefv(source, AL_VELOCITY, SourceVel);                                 //Set the velocity of the source
-//alSourcei(source, AL_LOOPING, AL_FALSE);                                 //Set if source is looping sound
+void AudioSourceComponent::Stop()
+{
+	alSourceStop(m_uSource);
+}
 
-////PLAY 
-//alSourcePlay(source);                                                       //Play the sound buffer linked to the source
-//if (alGetError() != AL_NO_ERROR) return endWithError("Error playing sound"); //Error when playing sound
+void AudioSourceComponent::Pause()
+{
+	alSourcePause(m_uSource);
+}
+
+void AudioSourceComponent::SetPitchFromScript(float i_fPitch)
+{
+	SetPitch(i_fPitch);
+}
+void AudioSourceComponent::SetGainFromScript(float i_fGain)
+{
+	SetGain(i_fGain);
+}
+void AudioSourceComponent::SetLoopingFromScript(bool i_bLooping)
+{
+	SetLooping(i_bLooping);
+}
+void AudioSourceComponent::SetPlayAwakeFromScript(bool i_bPlayAwake)
+{
+	SetPlayAwake(i_bPlayAwake);
+}
+//
+//enum { Left = 0, Right = 1 };
+//ALuint Source[2];
+//
+//alGenSources(2, Source);
+//...
+//alSourcei(Source[Left], AL_SOURCE_RELATIVE, AL_TRUE);
+//alSource3f(Source[Left], AL_POSITION, -1.0f, 0.0f, 0.0f);
+//alSourcei(Source[Right], AL_SOURCE_RELATIVE, AL_TRUE);
+//alSource3f(Source[Right], AL_POSITION, +1.0f, 0.0f, 0.0f);
+//
+//// Both sources can use the same buffer, no problem
+//alSourcei(Source[Left], AL_BUFFER, buffer);
+//alSourcei(Source[Right], AL_BUFFER, buffer);
+//...
+//// Use alSourcePlayv to make sure they start synchronized
+//alSourcePlayv(2, Sources);
+//
+//// Update panning
+//alSourcef(Source[Left], AL_GAIN, clamp(1.0f - pan, 0.0f, 1.0f));
+//alSourcef(Source[Right], AL_GAIN, clamp(1.0f + pan, 0.0f, 1.0f));

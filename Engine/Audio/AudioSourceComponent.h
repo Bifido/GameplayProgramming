@@ -25,15 +25,21 @@ public:
 
 	void Play();
 	void Stop();
+	void Pause();
 
-	void SetPitch(float pitch);
-	void SetGain(float gain);
-	void SetLooping(bool looping);
-	void SetPlayAwake(bool playAwake);
+	void SetPitch(float i_fPitch);
+	void SetGain(float i_fGain);
+	void SetLooping(bool i_bLooping);
+	void SetPlayAwake(bool i_bPlayAwake);
 
 private:
 
 	void CreateLuaObject();
+
+	void SetPitchFromScript(float i_fPitch);
+	void SetGainFromScript(float i_fGain);
+	void SetLoopingFromScript(bool i_bLooping);
+	void SetPlayAwakeFromScript(bool i_bPlayAwake);
 
 	static const char* METATABLE_NAME;
 
@@ -52,9 +58,10 @@ private:
 	bool m_bLooping;
 	bool m_bPlayAwake;
 
+	bool m_bStraming;
+
 	AudioID m_oAudioFile;
 
-	void Test();
-
+	//enum { Left = 0, Right = 1 };
 };
 

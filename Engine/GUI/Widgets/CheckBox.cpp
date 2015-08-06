@@ -13,6 +13,7 @@ const std::string CheckBox::CHECKBOX_WIDGET_TABLE("CheckboxWidgetTable");
 CheckBox::CheckBox(GUIViewComponent* i_pParent)
 	: IGUIWidgets(i_pParent)
 	, m_bSelected(FALSE)
+	, m_bCheckable(TRUE)
 	, m_pObject(NULL)
 {
 	CreateLuaObject();
@@ -29,6 +30,20 @@ CheckBox::~CheckBox()
 
 bool CheckBox::SetupFromXml(const tinyxml2::XMLElement* pNode)
 {
+	if (pNode)
+	{
+		const tinyxml2::XMLElement* pCheckable = pNode->FirstChildElement("Checkable");
+		if (pCheckable)
+		{
+			m_bCheckable = pCheckable->BoolAttribute("value");
+		}
+
+		const tinyxml2::XMLElement* pSelected = pNode->FirstChildElement("Selected");
+		if (pSelected)
+		{
+			m_bSelected = pSelected->BoolAttribute("value");
+		}
+	}
 	return IGUIWidgets::SetupFromXml(pNode);
 }
 
@@ -79,6 +94,7 @@ void CheckBox::RegisterScriptFunctions()
 	oMetatable.RegisterObjectDirect("SetText", (CheckBox*)0, &CheckBox::SetTextFromScript);
 	oMetatable.RegisterObjectDirect("SetSelected", (CheckBox*)0, &CheckBox::SetSelectedFromScript);
 	oMetatable.RegisterObjectDirect("IsSelected", (CheckBox*)0, &CheckBox::IsSelectedFromScript);
+	oMetatable.RegisterObjectDirect("SetCheckable", (CheckBox*)0, &CheckBox::SetCheckable);
 }
 
 void CheckBox::CreateLuaObject()
@@ -106,6 +122,8 @@ CEGUI::Checkbox* CheckBox::Create(IGUIWidgets* i_oWidget, CEGUI::Window* i_pObje
 				pCheckBox->m_pObject->setSize(CEGUI::UVector2(CEGUI::UDim(pCheckBox->GetSize().x, 0), CEGUI::UDim(pCheckBox->GetSize().y, 0)));
 				pCheckBox->m_pObject->setPosition(CEGUI::UVector2(CEGUI::UDim(pCheckBox->GetPosition().x, 0), CEGUI::UDim(pCheckBox->GetPosition().y, 0)));
 				pCheckBox->m_pObject->setSelected(pCheckBox->m_bSelected);
+
+				pCheckBox->SetCheckable(pCheckBox->m_bCheckable);
 
 				pCheckBox->m_pObject->subscribeEvent(CEGUI::Checkbox::EventCheckStateChanged, CEGUI::Event::Subscriber(&CheckBox::OnCheckStateChanged, pCheckBox));
 			}
@@ -137,4 +155,17 @@ void CheckBox::SetSelectedFromScript(bool i_bSelected)
 bool CheckBox::IsSelectedFromScript()
 {
 	return m_bSelected;
+}
+
+void CheckBox::SetCheckable(bool i_bCheckable)
+{
+	m_bCheckable = i_bCheckable;
+	if (m_bCheckable)
+	{
+		m_pObject->enable();
+	}
+	else
+	{
+		m_pObject->disable();
+	}
 }

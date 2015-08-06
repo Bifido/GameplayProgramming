@@ -5,6 +5,8 @@
 #include "CEGUIEvent.h"
 #include "..\..\Manager\LuaManager.h"
 
+const std::string Slider::SLIDER_WIDGET_TABLE("SliderWidgetTable");
+
 Slider::Slider(GUIViewComponent* i_pParent)
 	: IGUIWidgets(i_pParent)
 	, m_fMaxValue(100.0f)
@@ -27,15 +29,19 @@ Slider::~Slider()
 void Slider::RegisterScriptFunctions()
 {
 	//Create new metatable for a generic script component
-	LuaPlus::LuaObject oMetatable = LuaManager::GetSingleton().GetGlobalVars().CreateTable("SliderMetatable");
+	LuaPlus::LuaObject oMetatable = LuaManager::GetSingleton().GetGlobalVars().CreateTable(SLIDER_WIDGET_TABLE.c_str());
+	oMetatable.SetObject("__index", oMetatable);
+
 	oMetatable.RegisterObjectDirect("GetCurrentValue",  (Slider*)0, &Slider::GetCurrentValue);
+	//oMetatable.RegisterObjectDirect("OnThumbTrackStarted", (Slider*)0, &Slider::OnThumbTrackStarted);
+	//oMetatable.RegisterObjectDirect("OnThumbTrackEnded", (Slider*)0, &Slider::OnThumbTrackEnded);
 }
 
 void Slider::CreateLuaObject()
 {
 	m_oLuaObject.AssignNewTable(LuaManager::GetSingleton().GetLuaState());
 
-	LuaPlus::LuaObject metaTable =	LuaManager::GetSingleton().GetGlobalVars().GetByName("SliderMetatable");
+	LuaPlus::LuaObject metaTable = LuaManager::GetSingleton().GetGlobalVars().GetByName(SLIDER_WIDGET_TABLE.c_str());
 
 	m_oLuaObject.SetLightUserData("__object", const_cast<Slider*>(this));
 	m_oLuaObject.SetMetaTable(metaTable);
@@ -77,47 +83,48 @@ void Slider::SetupFromScript( LuaPlus::LuaObject i_oScript )
 	}
 }
 
-void Slider::SetOnThumbTrackStartedScriptFunction( LuaPlus::LuaObject oScriptFunc )
-{
-	if(oScriptFunc.IsFunction())
-	{
-		m_oScriptOnThumbTrackStarted = oScriptFunc;
-	}
-	else
-	{
-		MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_ERROR, GUI_CONTEXT, "OnThumbTrackStarted script is not a function!");
-	}
-}
-
-void Slider::SetOnThumbTrackEndedScriptFunction( LuaPlus::LuaObject oScriptFunc )
-{
-	if(oScriptFunc.IsFunction())
-	{
-		m_oScriptOnThumbTrackEnded = oScriptFunc;
-	}
-	else
-	{
-		MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_ERROR, GUI_CONTEXT, "OnThumbTrackEnded script is not a function!");
-	}
-}
-
-void Slider::SetOnValueChangedScriptFunction( LuaPlus::LuaObject oScriptFunc )
-{
-	if(oScriptFunc.IsFunction())
-	{
-		m_oScriptOnValueChangedFunction = oScriptFunc;
-	}
-	else
-	{
-		MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_ERROR, GUI_CONTEXT, "OnValueChanged script is not a function!");
-	}
-}
+//void Slider::SetOnThumbTrackStartedScriptFunction( LuaPlus::LuaObject oScriptFunc )
+//{
+//	if(oScriptFunc.IsFunction())
+//	{
+//		m_oScriptOnThumbTrackStarted = oScriptFunc;
+//	}
+//	else
+//	{
+//		MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_ERROR, GUI_CONTEXT, "OnThumbTrackStarted script is not a function!");
+//	}
+//}
+//
+//void Slider::SetOnThumbTrackEndedScriptFunction( LuaPlus::LuaObject oScriptFunc )
+//{
+//	if(oScriptFunc.IsFunction())
+//	{
+//		m_oScriptOnThumbTrackEnded = oScriptFunc;
+//	}
+//	else
+//	{
+//		MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_ERROR, GUI_CONTEXT, "OnThumbTrackEnded script is not a function!");
+//	}
+//}
+//
+//void Slider::SetOnValueChangedScriptFunction( LuaPlus::LuaObject oScriptFunc )
+//{
+//	if(oScriptFunc.IsFunction())
+//	{
+//		m_oScriptOnValueChangedFunction = oScriptFunc;
+//	}
+//	else
+//	{
+//		MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_ERROR, GUI_CONTEXT, "OnValueChanged script is not a function!");
+//	}
+//}
 
 bool Slider::OnThumbTrackStarted(const CEGUI::EventArgs& i_oParam)
 {
-	if(!m_oScriptOnThumbTrackStarted.IsNil())
+	//if(!m_oScriptOnThumbTrackStarted.IsNil())
+	if (m_oLuaObject.GetByName("OnThumbTrackStarted").IsFunction())
 	{
-		LuaPlus::LuaFunction<void> oOnThumbTrackStartedFunction(m_oScriptOnThumbTrackStarted);
+		LuaPlus::LuaFunction<void> oOnThumbTrackStartedFunction(m_oLuaObject.GetByName("OnThumbTrackStarted"));
 		oOnThumbTrackStartedFunction();
 		return true;
 	}
@@ -127,9 +134,15 @@ bool Slider::OnThumbTrackStarted(const CEGUI::EventArgs& i_oParam)
 
 bool Slider::OnThumbTrackEnded(const CEGUI::EventArgs& i_oParam)
 {
-	if(!m_oScriptOnThumbTrackEnded.IsNil())
+	//if(!m_oScriptOnThumbTrackEnded.IsNil())
+	//{
+	//	LuaPlus::LuaFunction<void> oOnThumbTrackEndedFunction(m_oScriptOnThumbTrackEnded);
+	//	oOnThumbTrackEndedFunction();
+	//	return true;
+	//}
+	if (m_oLuaObject.GetByName("OnThumbTrackEnded").IsFunction())
 	{
-		LuaPlus::LuaFunction<void> oOnThumbTrackEndedFunction(m_oScriptOnThumbTrackEnded);
+		LuaPlus::LuaFunction<void> oOnThumbTrackEndedFunction(m_oLuaObject.GetByName("OnThumbTrackEnded"));
 		oOnThumbTrackEndedFunction();
 		return true;
 	}
@@ -146,9 +159,9 @@ bool Slider::OnValueChanged(const CEGUI::EventArgs& i_oParam)
 		m_fCurrentValue = pSlider->getCurrentValue();
 	}
 
-	if(!m_oScriptOnValueChangedFunction.IsNil())
+	if (m_oLuaObject.GetByName("OnValueChanged").IsFunction())
 	{
-		LuaPlus::LuaFunction<void> oOnValueChangedFunction(m_oScriptOnValueChangedFunction);		
+		LuaPlus::LuaFunction<void> oOnValueChangedFunction(m_oLuaObject.GetByName("OnValueChanged"));
 
 		oOnValueChangedFunction(LuaManager::GetSingleton().GetLuaState(),static_cast<int32>(m_fCurrentValue));
 		return true;

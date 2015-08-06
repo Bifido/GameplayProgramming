@@ -17,7 +17,15 @@ AudioFile::~AudioFile()
 {
 	//Delete the OpenAL Buffer
 	if (m_uBuffer)
+	{
 		alDeleteBuffers(1, &m_uBuffer);
+		ALenum errEnum = alGetError();
+		if (errEnum != AL_NO_ERROR)
+		{
+			//Error during buffer/source generation
+			MGD_LOG::LOGManager::GetSingleton().WriteLog(MGD_LOG::MGD_ERROR, AUDIO_CONTEXT, "AudioFile dtor error: (OpenAL err: %s)", AudioUtils::GetALErrorString(errEnum).c_str());
+		}
+	}
 }
 
 ALenum AudioFile::GetFormat(short bitsPerSample, short channels)

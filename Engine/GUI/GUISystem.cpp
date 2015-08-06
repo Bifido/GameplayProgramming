@@ -9,6 +9,7 @@
 #include "Widgets/Button.h"
 #include "Widgets/StaticText.h"
 #include "Widgets/CheckBox.h"
+#include "Widgets/Slider.h"
 #include "SDL_events.h"
 #include "../Common/Common.h"
 
@@ -221,6 +222,10 @@ CEGUI::Window* GUISystem::GetGUIWidget(IGUIWidgets* i_oGUIWidget)
 				else if (strcmp(szType.c_str(), "CheckBox") == 0)
 				{
 					return CheckBox::Create(i_oGUIWidget, pObject);
+				}
+				else if (strcmp(szType.c_str(), "Slider") == 0)
+				{
+					return Slider::Create(i_oGUIWidget, pObject);
 				}
 				else
 				{

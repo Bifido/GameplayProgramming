@@ -4,6 +4,7 @@
 #include "Widgets/Interface/IGUIWidget.h"
 #include "Widgets/Button.h"
 #include "Widgets/StaticText.h"
+#include "Widgets/Slider.h"
 
 ID_IMPLEMENTATION(GUIViewComponent);
 
@@ -58,6 +59,7 @@ void GUIViewComponent::RegisterScriptFunctions()
 	Button::RegisterScriptFunctions();
 	StaticText::RegisterScriptFunctions();
 	CheckBox::RegisterScriptFunctions();
+	Slider::RegisterScriptFunctions();
 }
 
 LuaPlus::LuaObject GUIViewComponent::GetLuaWidget(const char* i_szName)
@@ -120,6 +122,11 @@ bool GUIViewComponent::SetupFromXml( const tinyxml2::XMLElement* pNode )
 				else if (strcmp(szType, "CheckBox") == 0)
 				{
 					pGUIWidget = new CheckBox(this);
+					pGUIWidget->SetType(szType);
+				}
+				else if (strcmp(szType, "Slider") == 0)
+				{
+					pGUIWidget = new Slider(this);
 					pGUIWidget->SetType(szType);
 				}
 				else

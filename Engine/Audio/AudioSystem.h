@@ -43,5 +43,6 @@ private:
 	ALCcontext* m_pContext;
 
 	MGDMap<AudioID, AudioFile*> m_AudioFiles;
+	MGDMap<AudioID, AudioFile*> m_StreamingAudioFiles;
 };
 
